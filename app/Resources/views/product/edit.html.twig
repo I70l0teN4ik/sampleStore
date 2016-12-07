@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body_id 'product_edit' %}
+
+{% block header_navigation_links %}
+    {% if is_granted('ROLE_ADMIN') %}
+        <li style="padding: 7px;">
+            {{ include('product/_form.html.twig', {
+                form: delete_form,
+                button_label: 'Delete',
+                button_css: 'btn btn-ml btn-block btn-danger',
+                show_confirmation: true,
+            }, with_context = false) }}
+        </li>
+    {% endif %}
+{% endblock %}
+
+{% block main %}
+    <h1 class="text-center">Edit Product</h1>
+
+    {{ include('product/_form.html.twig', {
+        form: form,
+        button_label: 'Edit Product',
+        show_confirmation: false,
+    }, with_context = true) }}
+{% endblock %}
+
+{% block continer_footer %}
+    {{ include('product/_delete_confirmation.html.twig') }}
+{% endblock %}

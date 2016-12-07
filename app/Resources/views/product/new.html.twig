@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block body_id 'product_new' %}
+
+{% block main %}
+    <h1 class="text-center">Add new Product</h1>
+
+    {{ include('product/_form.html.twig', {
+        form: form,
+    }, with_context = true) }}
+{% endblock %}

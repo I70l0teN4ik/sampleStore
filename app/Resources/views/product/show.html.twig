@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body_id 'product_show' %}
+
+{% block header_navigation_links %}
+    {% if is_granted('ROLE_ADMIN') %}
+        <li>
+            <a href="{{ path('product_edit', { id: product.id }) }}">
+                <i class="fa fa-edit" aria-hidden="true"></i> {{ 'Edit' }}
+            </a>
+        </li>
+        <li style="padding: 7px;">
+            {{ include('product/_form.html.twig', {
+                form: delete_form,
+                button_label: 'Delete',
+                button_css: 'btn btn-ml btn-block btn-danger',
+                show_confirmation: true,
+            }, with_context = false) }}
+        </li>
+    {% endif %}
+{% endblock %}
+
+{% block main %}
+    <h1 class="text-center">{{ product.name }}</h1>
+    <div class="row help-block">
+        <div class="col-sm-6">${{ product.price }}</div>
+        <div class="col-sm-6 text-right">{{ product.created|date }}</div>
+    </div>
+    <div class="text-justify">
+        {{ product.description }}
+    </div>
+{% endblock %}
+
+{% block continer_footer %}
+    {{ include('product/_delete_confirmation.html.twig') }}
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body_id 'homepage'%}
+
+{% block main %}
+    {% for product in pagination %}
+        <article {% if loop.index is odd %}class="well"{% endif %}>
+            <h2>
+                <a href="{{ path('product_show', { id: product.id }) }}">
+                    {{ product.name }}
+                 </a>
+            </h2>
+            <div class="row help-block">
+                <div class="col-sm-6">${{ product.price }}</div>
+                <div class="col-sm-6 text-right">{{ product.created|date }}</div>
+            </div>
+
+            <div class="text-justify">{{ product.description }}</div>
+        </article>
+    {% else %}
+        <div class="well">
+            <h2>There is no products found.</h2>
+            Use <code>php bin/console app:generate:products 30</code> command to generate 30 dummy products.&nbsp;
+            Or just login as <code>admin</code> and crete some...
+        </div>
+    {% endfor %}
+
+    <div class="navigation text-center">
+        {{ knp_pagination_render(pagination) }}
+    </div>
+{% endblock %}

@@ -1,0 +1,95 @@
+p, ul, ol {
+    font-size: 19px;
+    margin-bottom: 1.5em
+}
+
+li {
+    margin-bottom: 0.5em
+}
+
+.text-danger, .text-danger:hover {
+    color: #e74c3c
+}
+
+i {
+    margin-right: 0.25em
+}
+
+body {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    min-height: 100vh
+}
+
+header {
+    margin-bottom: 2em
+}
+
+header ul.nav li {
+    margin-bottom: 0
+}
+
+article {
+    padding: 19px;
+}
+article.well {
+    margin-bottom: 0;
+}
+
+.body-container {
+    -webkit-flex: 1;
+    flex: 1;
+    min-height: 600px
+}
+
+.body-container #main h1, .body-container #main h2 {
+    margin-top: 0
+}
+
+/* Forms
+   ------------------------------------------------------------------------- */
+.form-group.has-error .form-control {
+    border-color: #e74c3c
+}
+
+.form-group.has-error .control-label {
+    color: #e74c3c
+}
+
+.form-group.has-error .help-block {
+    background-color: #e74c3c;
+    color: #fff;
+    font-size: 15px;
+    padding: 1em
+}
+
+.form-group.has-error .help-block ul {
+    margin-bottom: 0
+}
+
+textarea {
+    max-width: 100%
+}
+
+/* Page: 'Login'
+   ------------------------------------------------------------------------- */
+body#login #login-users-help p {
+    font-size: 15px;
+    line-height: 1.42857
+}
+
+body#login #login-users-help p:last-child {
+    margin-bottom: 0
+}
+
+body#login #login-users-help p .label {
+    margin-right: 5px
+}
+
+body#login #login-users-help p .console {
+    display: block;
+    margin: 5px 0;
+    padding: 10px
+}

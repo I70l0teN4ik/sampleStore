@@ -1,0 +1,11 @@
+{% if show_confirmation|default(false) %}
+    {% set attr = {'data-confirmation': 'true'} %}
+{% endif %}
+
+{{ form_start(form, { attr: attr|default({}) }) }}
+    {{ form_widget(form) }}
+
+    <input type="submit" value="{{ button_label|default('Create Product') }}"
+           class="{{ button_css|default('btn btn-lg btn-block btn-primary') }}" />
+
+{{ form_end(form) }}
